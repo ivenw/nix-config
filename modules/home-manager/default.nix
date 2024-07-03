@@ -6,7 +6,6 @@
     ./nvim
     ./zsh
     ./starship
-    ./zellij
     ./tmux
     ./alacritty
     ./wezterm
