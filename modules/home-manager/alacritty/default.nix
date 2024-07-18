@@ -13,6 +13,6 @@
   xdg.configFile."alacritty/alacritty.toml" = {
     source =
       config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nixos-config/home-manager/alacritty/alacritty.toml";
+      "${config.home.homeDirectory}/nix-config/home-manager/alacritty/alacritty.toml";
   };
 }

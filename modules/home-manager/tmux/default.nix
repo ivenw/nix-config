@@ -19,6 +19,6 @@
   xdg.configFile."tmux/tmux.conf" = {
     source =
       config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nixos-config/home-manager/tmux/tmux.conf";
+      "${config.home.homeDirectory}/nix-config/home-manager/tmux/tmux.conf";
   };
 }

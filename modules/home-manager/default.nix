@@ -11,12 +11,6 @@
     ./wezterm
   ];
 
-  home = {
-    username = "ivenw";
-    homeDirectory = "/home/ivenw";
-    sessionPath = ["$HOME/.local/bin"];
-  };
-
   # fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [

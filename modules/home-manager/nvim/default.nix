@@ -31,7 +31,7 @@
       gopls
 
       # Python
-      nodePackages.pyright
+      pyright
       ruff-lsp
 
       # Lua
@@ -49,6 +49,6 @@
   xdg.configFile."nvim" = {
     source =
       config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nixos-config/home-manager/nvim";
+      "${config.home.homeDirectory}/nix-config/modules/home-manager/nvim";
   };
 }
