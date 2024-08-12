@@ -20,6 +20,7 @@
 
       lg = "lazygit";
       ya = "yazi";
+      nv = "nvim";
 
       # dev shells
       dev-rust = "nix develop ~/nixos-config#rust -c $SHELL";

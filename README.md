@@ -30,7 +30,17 @@ cd ~ && git clone https://github.com/ivenw/nix-config
 nix run nix-darwin --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ~/nix-config
 ```
 
-#### 5. Use
+#### 5. Initialize tmux
+
+Run:
+
+```sh
+tmux source ~/.config/tmux/tmux.conf
+```
+
+Then install tmux plugins by pressing <kbd>prefix</kbd> + <kbd>I</kbd>.
+
+#### 6. Use
 
 After installing, configuration changes can be applied to the system running:
 

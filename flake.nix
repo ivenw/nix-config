@@ -31,14 +31,14 @@
       inherit system specialArgs;
       modules = [
         ./modules/darwin
-        # home-manager.darwinModules.home-manager
-        # {
-        #   home-manager = {
-        #     useGlobalPkgs = true;
-        #     useUserPackages = true;
-        #     users.${username}.imports = [./modules/home-manager];
-        #   };
-        # }
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${username}.imports = [./modules/home-manager];
+          };
+        }
       ];
     };
 

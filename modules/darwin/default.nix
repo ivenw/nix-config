@@ -1,6 +1,7 @@
 {
   self,
   pkgs,
+  lib,
   system,
   hostname,
   username,
@@ -42,6 +43,8 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.trusted-users = [ username ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
 
@@ -49,7 +52,15 @@
     home = "/Users/${username}";
   };
 
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 4;
+  # do garbage collection to keep disk usage low
+  nix.gc = {
+    automatic = lib.mkDefault true;
+    options = lib.mkDefault "--delete-older-than 30d";
+  };
+
+  # Disable auto-optimise-store because of this issue:
+  #   https://github.com/NixOS/nix/issues/7273
+  nix.settings = {
+    auto-optimise-store = false;
+  };
 }

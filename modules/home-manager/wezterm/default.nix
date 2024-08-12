@@ -1,6 +1,5 @@
 {config, ...}: {
-
-  # xdg.configFile."alacritty" = {
-  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/home-manager/alacritty";
-  # };
+  xdg.configFile."wezterm/wezterm.lua" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/wezterm/wezterm.lua";
+  };
 }

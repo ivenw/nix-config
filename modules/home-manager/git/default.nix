@@ -13,6 +13,6 @@
   xdg.configFile."git/config" = {
     source =
       config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-config/home-manager/git/config";
+      "${config.home.homeDirectory}/nix-config/modules/home-manager/git/config";
   };
 }

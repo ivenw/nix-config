@@ -33,6 +33,7 @@
       # Python
       pyright
       ruff-lsp
+      ruff
 
       # Lua
       lua-language-server
