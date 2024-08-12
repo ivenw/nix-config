@@ -1,9 +1,6 @@
 {
-  self,
   pkgs,
   lib,
-  system,
-  hostname,
   username,
   ...
 }: {
@@ -15,10 +12,10 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { 
-      fonts = [ 
-        "JetBrainsMono" 
-      ]; 
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+      ];
     })
   ];
 
@@ -34,6 +31,10 @@
     };
   };
 
+  system.keyboard = {
+    remapCapsLockToEscape = true;
+  };
+
   security.pam.enableSudoTouchIdAuth = true;
 
   # Auto upgrade nix package and the daemon service.
@@ -41,7 +42,7 @@
   nix.package = pkgs.nix;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.settings.trusted-users = [ username ];
+  nix.settings.trusted-users = [username];
 
   nixpkgs.config.allowUnfree = true;
 

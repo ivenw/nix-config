@@ -3,9 +3,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
 
-    nix-darwin = { 
-      url = "github:LnL7/nix-darwin"; 
-      inputs.nixpkgs.follows = "nixpkgs"; 
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -25,7 +25,7 @@
     username = "ivenw";
     system = "aarch64-darwin";
 
-    specialArgs = inputs // { inherit hostname username; };
+    specialArgs = inputs // {inherit hostname username;};
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
       inherit system specialArgs;
@@ -41,9 +41,6 @@
         }
       ];
     };
-
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
 
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
