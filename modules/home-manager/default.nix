@@ -14,7 +14,7 @@
   # fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # cli and tui apps
+    # General cli and tui apps
     atuin
     gh
     azure-cli
@@ -25,19 +25,38 @@
     tokei
     ripgrep
     tree
-    helix
     zoxide
     mdbook
     unzip
     yazi
     cloc
     graphviz
-
-    # linters and formatters
-    alejandra
-    stylua
+    jq
     yamllint
+
+    ###########################
+    # Language specific tools #
+    ###########################
+
+    # Python
+    python3
+    rye
+    poetry
     ruff
+
+    # Rust
+    rustup
+    bacon
+
+    # Go
+    go
+
+    # Zig
+    zig
+
+    # Terraform
+    terraform
+    opentofu
   ];
 
   # Enable home-manager
