@@ -6,10 +6,10 @@ This repo contains my nix configuration for both Linux and Mac installations.
 
 ### On Mac
 
-#### 1. Install Nix
+#### 1. Install Nix with [nix-installer](https://github.com/DeterminateSystems/nix-installer)
 
 ```sh
-sh <(curl -L https://nixos.org/nix/install)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
 #### 2. Install Homebrew
