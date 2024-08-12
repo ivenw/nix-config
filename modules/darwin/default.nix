@@ -6,6 +6,10 @@
   username,
   ...
 }: {
+  imports = [
+    ./homebrew.nix
+  ];
+
   environment.systemPackages = with pkgs; [
   ];
 
@@ -26,7 +30,7 @@
     NSGlobalDomain = {
       AppleShowAllExtensions = true;
       "com.apple.mouse.tapBehavior" = 1; # Tap to click
-    }
+    };
   };
 
   security.pam.enableSudoTouchIdAuth = true;
@@ -48,7 +52,4 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
-
-  # The platform the configuration will be used on.
-  nixpkgs.hostPlatform = system;
 }

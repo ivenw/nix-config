@@ -1,7 +1,7 @@
 {
   description = "My nix configuration";
-  inputs = let version = "24.05"; in {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-${version}-darwin";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
 
     nix-darwin = { 
       url = "github:LnL7/nix-darwin"; 
@@ -9,7 +9,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-${version}";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -24,11 +24,13 @@
     hostname = "midnight";
     username = "ivenw";
     system = "aarch64-darwin";
+
+    specialArgs = inputs // { inherit hostname username; };
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+      inherit system specialArgs;
       modules = [
-        ./modules/darwin/system.nix
-        ./modules/darwin/homebrew.nix
+        ./modules/darwin
         # home-manager.darwinModules.home-manager
         # {
         #   home-manager = {
@@ -42,7 +44,6 @@
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
-    specialArgs = { inherit hostname username inputs; };
 
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
