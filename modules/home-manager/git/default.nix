@@ -1,6 +1,7 @@
 {config, ...}: {
   programs.git = {
     enable = true;
+    lfs.enable = true;
   };
 
   xdg.configFile."git/delta" = {
