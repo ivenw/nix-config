@@ -32,5 +32,9 @@
     oh-my-zsh = {
       enable = true;
     };
+
+    initExtraFirst = ''
+      source $HOME/.rye/env
+    '';
   };
 }
