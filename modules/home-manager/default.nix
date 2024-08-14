@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   imports = [
     ./git
     ./lazygit
@@ -11,13 +15,9 @@
     ./wezterm
   ];
 
-  # fonts.fontconfig.enable = true;
-
   home.packages = with pkgs; [
     # General cli and tui apps
     atuin
-    gh
-    azure-cli
     pipx
     fd
     fzf
@@ -33,6 +33,11 @@
     graphviz
     jq
     yamllint
+
+    # These are needed for rust embedded programming
+    # and should be put into the shell
+    qemu
+    pkg-config
 
     ###########################
     # Language specific tools #
