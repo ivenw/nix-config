@@ -12,6 +12,8 @@
     ];
 
     brews = [
+      "glab"
+      "gh"
     ];
 
     casks = [
