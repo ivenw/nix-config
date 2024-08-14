@@ -27,8 +27,9 @@
 	pager = "delta"
 
 [credential]
-	credentialStore = "secretservice"
-	helper = "/run/current-system/sw/bin/git-credential-manager"
+    credentialStore = "osxkeychain"
+	# credentialStore = "secretservice"
+	# helper = "/run/current-system/sw/bin/git-credential-manager"
 
 [credential "dev.azure.com"]
 	useHttpPath = true
