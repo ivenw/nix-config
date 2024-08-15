@@ -29,6 +29,7 @@ return {
 
 			lsp.setup_servers({
 				"nil_ls",
+				-- "ruff",
 				"ruff_lsp",
 				"pyright",
 				"efm",
@@ -57,8 +58,6 @@ return {
 		config = function()
 			local prettier = require("efmls-configs.formatters.prettier")
 			local stylua = require("efmls-configs.formatters.stylua")
-			-- local black = require("efmls-configs.formatters.black")
-			local ruff = require("efmls-configs.formatters.ruff")
 			local alejandra = require("efmls-configs.formatters.alejandra")
 			local rustfmt = require("efmls-configs.formatters.rustfmt")
 			local gofmt = require("efmls-configs.formatters.gofmt")
@@ -69,7 +68,7 @@ return {
 			local languages = {
 				lua = { stylua },
 				-- python = { black },
-				python = { ruff },
+				-- python = { ruff },
 				nix = { alejandra },
 				rust = { rustfmt },
 				go = { gofmt },
