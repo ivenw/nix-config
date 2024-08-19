@@ -16,6 +16,8 @@
   ];
 
   home.packages = with pkgs; [
+    yabai
+
     # General cli and tui apps
     atuin
     pipx
@@ -51,7 +53,10 @@
 
     # Rust
     rustup
-    bacon
+    pkgs-unstable.bacon
+
+    # Web
+    pkgs-unstable.tailwindcss
 
     # Go
     go
