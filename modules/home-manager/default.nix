@@ -13,12 +13,10 @@
     ./tmux
     ./alacritty
     ./wezterm
-    ./yabai
+    ./aerospace
   ];
 
   home.packages = with pkgs; [
-    yabai
-
     # General cli and tui apps
     atuin
     pipx

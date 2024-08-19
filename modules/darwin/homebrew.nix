@@ -29,6 +29,7 @@
       "microsoft-teams"
       "visual-studio-code"
       "zed"
+      "nikitabobko/tap/aerospace"
     ];
 
     masApps = {
