@@ -9,6 +9,7 @@
     };
 
     taps = [
+      "nikitabobko/tap"
     ];
 
     brews = [
@@ -29,7 +30,7 @@
       "microsoft-teams"
       "visual-studio-code"
       "zed"
-      "nikitabobko/tap/aerospace"
+      "aerospace"
     ];
 
     masApps = {
