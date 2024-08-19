@@ -1,0 +1,11 @@
+#!/bin/sh
+alias y="yabai -m config"
+
+y layout bsp
+
+PADDING=20
+y top_padding $PADDING
+y bottom_padding $PADDING
+y left_padding $PADDING
+y right_padding $PADDING
+y window_gap $PADDING

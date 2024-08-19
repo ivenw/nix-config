@@ -13,6 +13,7 @@
     ./tmux
     ./alacritty
     ./wezterm
+    ./yabai
   ];
 
   home.packages = with pkgs; [
