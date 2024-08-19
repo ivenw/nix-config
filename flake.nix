@@ -23,7 +23,7 @@
     home-manager,
     ...
   }: let
-    hostname = "midnight";
+    hostname = "hamilton";
     username = "ivenw";
     system = "aarch64-darwin";
     pkgs-unstable = import nixpkgs-unstable {
