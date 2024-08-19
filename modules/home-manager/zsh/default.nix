@@ -35,6 +35,7 @@
 
     initExtraFirst = ''
       source $HOME/.rye/env
+      export PATH=$HOME/.cargo/bin:$PATH
     '';
   };
 }
