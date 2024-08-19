@@ -3,9 +3,14 @@ alias y="yabai -m config"
 
 y layout bsp
 
-PADDING=20
+PADDING=15
 y top_padding $PADDING
 y bottom_padding $PADDING
 y left_padding $PADDING
 y right_padding $PADDING
 y window_gap $PADDING
+
+y auto_balance off
+y split_ratio 0.7
+
+y window_shadow float
