@@ -50,5 +50,20 @@
     };
 
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+
+    devShells.${system} = {
+      rust = pkgs-unstable.mkShell {
+        name = "rust";
+        buildInputs = with pkgs-unstable; [
+          openssl
+          libgit2
+          pkg-config
+        ];
+        packages = with pkgs-unstable; [
+          rustup
+          bacon
+        ];
+      };
+    };
   };
 }
