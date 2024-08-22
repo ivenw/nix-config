@@ -50,12 +50,9 @@
     poetry
     ruff
 
-    # Rust
-    rustup
-    pkgs-unstable.bacon
-
     # Web
     pkgs-unstable.tailwindcss
+    pkgs-unstable.deno
 
     # Go
     go
