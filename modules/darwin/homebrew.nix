@@ -29,6 +29,7 @@
       "slack"
       "microsoft-teams"
       "visual-studio-code"
+      "google-chrome"
       "zed"
       "aerospace"
     ];
