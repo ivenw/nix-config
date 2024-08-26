@@ -28,6 +28,7 @@
     NSGlobalDomain = {
       AppleShowAllExtensions = true;
       "com.apple.mouse.tapBehavior" = 1; # Tap to click
+      ApplePressAndHoldEnabled = true;
     };
   };
 
