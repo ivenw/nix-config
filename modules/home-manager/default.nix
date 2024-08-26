@@ -6,14 +6,15 @@
   imports = [
     ./git
     ./lazygit
-    ./bat
+    ./bat.nix
     ./nvim
-    ./zsh
-    ./starship
+    ./zsh.nix
+    ./starship.nix
     ./tmux
     ./alacritty
     ./wezterm
     ./aerospace
+    ./nix-direnv.nix
   ];
 
   home.packages = with pkgs; [
