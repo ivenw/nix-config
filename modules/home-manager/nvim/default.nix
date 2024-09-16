@@ -16,6 +16,10 @@
       # Linting & formatting lsp
       efm-langserver
 
+      # Bash
+      shellcheck
+      shfmt
+
       # Nix
       nil
       alejandra
@@ -39,11 +43,10 @@
       lua-language-server
       stylua
 
+      nodePackages.prettier
+
       # YAML
       yamllint
-
-      # Web
-      nodePackages.prettier
     ];
   };
 

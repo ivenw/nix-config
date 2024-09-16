@@ -16,15 +16,33 @@ return {
 			lsp.extend_cmp()
 			require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 			require("lspconfig").rust_analyzer.setup({
-				on_init = function(client)
-					client.config.settings = {
-						["rust-analyzer"] = {
-							checkOnSave = {
-								command = "clippy",
+				settings = {
+					["rust-analyzer"] = {
+						files = {
+							excludeDirs = {
+								"target",
+								"node_modules",
+								".git",
+								".cargo",
+								".direnv",
+							},
+							watcherExlude = {
+								"target",
+								"node_modules",
+								".git",
+								".cargo",
+								".direnv",
 							},
 						},
-					}
-				end,
+						checkOnSave = {
+							command = "clippy",
+						},
+						diagnostics = {
+							enable = true,
+							experimental = { enable = true },
+						},
+					},
+				},
 			})
 
 			lsp.setup_servers({
@@ -56,6 +74,8 @@ return {
 		-- "ivenw/efmls-configs-nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
 		config = function()
+			local shellcheck = require("efmls-configs.linters.shellcheck")
+			local shfmt = require("efmls-configs.formatters.shfmt")
 			local prettier = require("efmls-configs.formatters.prettier")
 			local stylua = require("efmls-configs.formatters.stylua")
 			local alejandra = require("efmls-configs.formatters.alejandra")
@@ -66,6 +86,7 @@ return {
 			local yamllint = require("efmls-configs.linters.yamllint")
 
 			local languages = {
+				sh = { shellcheck, shfmt },
 				lua = { stylua },
 				-- python = { black },
 				-- python = { ruff },
@@ -76,8 +97,8 @@ return {
 				json = { prettier },
 				yaml = { yamllint, prettier },
 				html = { prettier },
-				handlebars = { prettier },
 				terraform = { terraformfmt },
+				javascript = { prettier },
 				-- hcl = { terramatefmt },
 			}
 			local config = {

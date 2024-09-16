@@ -1,15 +1,20 @@
 import = [
-  "~/.config/alacritty/themes/catppuccin/catppuccin-frappe.toml"
+  "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml"
 ]
 [env]
 TERM = "xterm-256color"
 
 [font]
-normal.family = "JetBrainsMono Nerd Font"
-size = 10.0
+# normal.family = "JetBrainsMono Nerd Font"
+normal.family = "BlexMono Nerd Font"
+normal.style = "Text"
+italic.family = "BlexMono Nerd Font"
+italic.style = "Text Italic"
+size = 14.0
 
 [window]
-decorations = "None"
+decorations = "Buttonless" # MacOS only
+# decorations = "None"
 # startup_mode = "Maximized" # currently broken in GNOME
 padding.x = 10
 padding.y = 10

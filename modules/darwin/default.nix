@@ -15,6 +15,10 @@
     (nerdfonts.override {
       fonts = [
         "JetBrainsMono"
+        "ZedMono"
+        "IBMPlexMono"
+        "FiraCode"
+        "Hack"
       ];
     })
   ];
@@ -29,6 +33,13 @@
       AppleShowAllExtensions = true;
       "com.apple.mouse.tapBehavior" = 1; # Tap to click
       ApplePressAndHoldEnabled = true;
+    };
+
+    CustomUserPreferences = {
+      # Disable font smoothing for alacritty
+      "org.alacritty" = {
+        "AppleFontSmoothing" = 0;
+      };
     };
   };
 

@@ -18,10 +18,12 @@
     ];
 
     casks = [
+      "docker"
       "sonos"
       "steam"
       "whisky"
       "raycast"
+      "alacritty"
       "wezterm"
       "bruno"
       "whatsapp"

@@ -23,7 +23,7 @@
     home-manager,
     ...
   }: let
-    hostname = "hamilton";
+    hostname = "liskov";
     username = "ivenw";
     system = "aarch64-darwin";
     pkgs-unstable = import nixpkgs-unstable {
@@ -50,20 +50,5 @@
     };
 
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-
-    devShells.${system} = {
-      rust = pkgs-unstable.mkShell {
-        name = "rust";
-        buildInputs = with pkgs-unstable; [
-          openssl
-          libgit2
-          pkg-config
-        ];
-        packages = with pkgs-unstable; [
-          rustup
-          bacon
-        ];
-      };
-    };
   };
 }

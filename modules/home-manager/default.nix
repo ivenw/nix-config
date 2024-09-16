@@ -35,6 +35,7 @@
     graphviz
     jq
     yamllint
+    taplo
 
     # These are needed for rust embedded programming
     # and should be put into the shell
@@ -51,9 +52,8 @@
     poetry
     ruff
 
-    # Web
-    pkgs-unstable.tailwindcss
-    pkgs-unstable.deno
+    # Rust
+    rustup
 
     # Go
     go
