@@ -15,6 +15,7 @@
     brews = [
       "glab"
       "gh"
+      "ollama"
     ];
 
     casks = [
