@@ -6,15 +6,15 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 		init = function()
-			local lsp = require("lsp-zero").preset({})
-			lsp.extend_lspconfig()
-			lsp.on_attach(function(_, bufnr)
+			local lsp_zero = require("lsp-zero").preset({})
+			lsp_zero.extend_lspconfig()
+			lsp_zero.on_attach(function(_, bufnr)
 				-- see :help lsp-zero-keybindings
 				-- to learn the available actions
-				lsp.default_keymaps({ buffer = bufnr })
+				lsp_zero.default_keymaps({ buffer = bufnr })
 			end)
-			lsp.extend_cmp()
-			require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+			lsp_zero.extend_cmp()
+			require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
 			require("lspconfig").rust_analyzer.setup({
 				settings = {
 					["rust-analyzer"] = {
@@ -45,7 +45,7 @@ return {
 				},
 			})
 
-			lsp.setup_servers({
+			lsp_zero.setup_servers({
 				"nil_ls",
 				-- "ruff",
 				"ruff_lsp",
