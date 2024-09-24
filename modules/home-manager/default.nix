@@ -19,6 +19,7 @@
 
   home.packages = with pkgs; [
     # General cli and tui apps
+    azure-cli
     atuin
     pipx
     fd
