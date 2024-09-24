@@ -34,6 +34,7 @@
       "google-chrome"
       "zed"
       "aerospace"
+      "mattermost"
     ];
 
     masApps = {
