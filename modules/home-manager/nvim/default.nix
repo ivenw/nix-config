@@ -43,7 +43,9 @@
       lua-language-server
       stylua
 
+      # Web
       nodePackages.prettier
+      tailwindcss-language-server
 
       # YAML
       yamllint

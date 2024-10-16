@@ -55,6 +55,7 @@ return {
 				"gopls",
 				"terraformls",
 				"tflint",
+				"tailwindcss",
 			})
 		end,
 	},

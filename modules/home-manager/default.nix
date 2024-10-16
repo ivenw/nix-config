@@ -37,6 +37,8 @@
     jq
     yamllint
     taplo
+    tailwindcss
+    imagemagick
 
     # These are needed for rust embedded programming
     # and should be put into the shell
