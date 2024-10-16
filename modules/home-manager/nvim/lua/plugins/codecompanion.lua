@@ -18,12 +18,32 @@ return {
 			})
 			local km = vim.keymap
 
-			km.set("n", "<leader>n", "<cmd>CodeCompanion<cr>", { noremap = true, silent = true })
-			km.set("v", "<leader>n", "<cmd>CodeCompanion<cr>", { noremap = true, silent = true })
+			-- km.set(
+			-- 	"n",
+			-- 	"<leader>n",
+			-- 	"<cmd>CodeCompanion<cr>",
+			-- 	{ noremap = true, silent = true, desc = "Inline prompt" }
+			-- )
+			-- km.set(
+			-- 	"v",
+			-- 	"<leader>n",
+			-- 	"<cmd>CodeCompanion<cr>",
+			-- 	{ noremap = true, silent = true, desc = "Inline prompt" }
+			-- )
 			km.set("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 			km.set("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-			km.set("n", "<LocalLeader>a", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
-			km.set("v", "<LocalLeader>a", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
+			km.set(
+				"n",
+				"<LocalLeader>a",
+				"<cmd>CodeCompanionToggle<cr>",
+				{ noremap = true, silent = true, desc = "Open chat" }
+			)
+			km.set(
+				"v",
+				"<LocalLeader>a",
+				"<cmd>CodeCompanionToggle<cr>",
+				{ noremap = true, silent = true, desc = "Open chat" }
+			)
 			km.set("v", "ga", "<cmd>CodeCompanionAdd<cr>", { noremap = true, silent = true })
 
 			-- Expand 'cc' into 'CodeCompanion' in the command line
