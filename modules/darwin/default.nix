@@ -8,6 +8,10 @@
     ./homebrew.nix
   ];
 
+  system.stateVersion = 5;
+
+  ids.uids.nixbld = 300; # NOTE: Remove this line when upgrading to MacOS 15
+
   environment.systemPackages = with pkgs; [
   ];
 

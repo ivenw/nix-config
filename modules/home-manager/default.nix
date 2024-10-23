@@ -1,6 +1,6 @@
 {
   pkgs,
-  pkgs-unstable,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -20,7 +20,6 @@
   home.packages = with pkgs; [
     # General cli and tui apps
     azure-cli
-    atuin
     pipx
     fd
     fzf
@@ -32,27 +31,25 @@
     mdbook
     unzip
     yazi
-    cloc
     graphviz
     jq
-    yamllint
-    taplo
-    tailwindcss
     imagemagick
-
-    # These are needed for rust embedded programming
-    # and should be put into the shell
-    qemu
-    pkg-config
 
     ###########################
     # Language specific tools #
     ###########################
 
+    # Config files and co
+    yamllint
+    taplo
+
+    # Web
+    tailwindcss
+    nodePackages.browser-sync
+
     # Python
     python3
     rye
-    poetry
     ruff
 
     # Rust

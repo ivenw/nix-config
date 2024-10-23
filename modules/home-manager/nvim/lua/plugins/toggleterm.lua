@@ -69,7 +69,7 @@ return {
 				"<cmd>lua _lazygit_toggle()<CR>",
 				{ noremap = true, silent = true, desc = "Toggle lazygit" }
 			)
-			km.set("t", "<esc>", "<cmd>close<CR>", { noremap = true, silent = true })
+			km.set("t", "<leader><esc>", "<cmd>close<CR>", { noremap = true, silent = true })
 		end,
 	},
 }

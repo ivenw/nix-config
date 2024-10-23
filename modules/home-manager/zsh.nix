@@ -19,6 +19,7 @@
       lg = "lazygit";
       ya = "yazi";
       nv = "nvim";
+      tf = "terraform";
 
       # dev shells
       # dev-rust = "nix develop ~/nixos-config#rust -c $SHELL";

@@ -98,6 +98,7 @@ return {
 				json = { prettier },
 				yaml = { yamllint, prettier },
 				html = { prettier },
+				htmldjango = { prettier },
 				terraform = { terraformfmt },
 				javascript = { prettier },
 				-- hcl = { terramatefmt },
