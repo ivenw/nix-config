@@ -1,8 +1,8 @@
 {
   description = "My nix configuration";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -18,7 +18,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nixpkgs-stable,
+    nixpkgs-unstable,
     nix-darwin,
     home-manager,
     ...
@@ -26,7 +26,7 @@
     hostname = "liskov";
     username = "ivenw";
     system = "aarch64-darwin";
-    pkgs-stable = import nixpkgs-stable {
+    pkgs-unstable = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
@@ -35,7 +35,7 @@
       inputs
       // {
         inherit hostname username;
-        pkgs-unstable = pkgs-stable;
+        pkgs-unstable = pkgs-unstable;
       };
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
