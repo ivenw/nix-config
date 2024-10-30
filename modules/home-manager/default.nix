@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   imports = [
     ./git
     ./lazygit
@@ -21,14 +25,14 @@
     fzf
     delta
     tokei
-    ripgrep
+    pkgs-unstable.ripgrep
     tree
     zoxide
     mdbook
     unzip
-    yazi
+    pkgs-unstable.yazi
     graphviz
-    jq
+    pkgs-unstable.jq
     imagemagick
 
     ###########################
@@ -40,13 +44,13 @@
     taplo
 
     # Web
-    tailwindcss
-    nodePackages.browser-sync
+    pkgs-unstable.tailwindcss
+    pkgs-unstable.nodePackages.browser-sync
 
     # Python
     python3
-    rye
-    ruff
+    pkgs-unstable.rye
+    pkgs-unstable.ruff
 
     # Rust
     rustup
