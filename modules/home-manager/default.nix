@@ -8,6 +8,7 @@
     ./lazygit
     ./bat.nix
     ./nvim
+    ./helix
     ./zsh.nix
     ./starship.nix
     ./tmux
@@ -34,6 +35,7 @@
     graphviz
     pkgs-unstable.jq
     imagemagick
+    pkgs-unstable.postgresql
 
     ###########################
     # Language specific tools #
@@ -44,8 +46,10 @@
     taplo
 
     # Web
+    pkgs-unstable.nodejs
     pkgs-unstable.tailwindcss
     pkgs-unstable.nodePackages.browser-sync
+    pkgs-unstable.nodePackages.prettier
 
     # Python
     python3

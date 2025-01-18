@@ -84,6 +84,7 @@ return {
 			local gofmt = require("efmls-configs.formatters.gofmt")
 			local terraformfmt = require("efmls-configs.formatters.terraform_fmt")
 			-- local terramatefmt = require("efmls-configs.formatters.terramate_fmt")
+			local sql_formatter = require("efmls-configs.formatters.sql-formatter")
 			local yamllint = require("efmls-configs.linters.yamllint")
 
 			local languages = {
@@ -96,11 +97,12 @@ return {
 				go = { gofmt },
 				css = { prettier },
 				json = { prettier },
-				yaml = { yamllint, prettier },
+				yaml = { prettier },
 				html = { prettier },
 				htmldjango = { prettier },
 				terraform = { terraformfmt },
 				javascript = { prettier },
+				sql = { sql_formatter },
 				-- hcl = { terramatefmt },
 			}
 			local config = {

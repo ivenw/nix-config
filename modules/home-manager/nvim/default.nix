@@ -1,13 +1,14 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
-    extraPackages = with pkgs; [
+    extraPackages = with pkgs-unstable; [
       # treesitter
       gcc
       nodejs_18
@@ -49,6 +50,9 @@
 
       # YAML
       yamllint
+
+      # SQL
+      nodePackages.sql-formatter
     ];
   };
 

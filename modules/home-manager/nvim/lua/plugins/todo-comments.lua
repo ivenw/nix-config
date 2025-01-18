@@ -2,10 +2,15 @@ return {
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("todo-comments").setup()
+		opts = {
+			highlight = {
+				keyword = "",
+				after = "",
+			},
+		},
+		config = function(_, opts)
+			require("todo-comments").setup(opts)
 			vim.keymap.set("n", "<leader>tc", ":TodoTelescope<CR>", { desc = "Search todos" })
 		end,
-		opts = {},
 	},
 }

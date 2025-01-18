@@ -19,7 +19,7 @@
     ];
 
     casks = [
-      "docker"
+      # "docker"
       "sonos"
       "steam"
       "whisky"
@@ -36,6 +36,7 @@
       "zed"
       "aerospace"
       "mattermost"
+      "tunnelblick"
     ];
 
     masApps = {
