@@ -13,6 +13,7 @@
     ./starship.nix
     ./tmux
     ./alacritty
+    ./ghostty
     ./wezterm
     ./aerospace
     ./nix-direnv.nix
@@ -36,6 +37,7 @@
     pkgs-unstable.jq
     imagemagick
     pkgs-unstable.postgresql
+    pkgs-unstable.helix
 
     ###########################
     # Language specific tools #
