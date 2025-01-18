@@ -25,6 +25,7 @@
       "whisky"
       "raycast"
       "alacritty"
+      "ghostty"
       "wezterm"
       "bruno"
       "whatsapp"
