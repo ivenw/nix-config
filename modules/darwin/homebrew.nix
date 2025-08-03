@@ -19,31 +19,44 @@
     ];
 
     casks = [
-      # "docker"
-      "sonos"
+      # System
+      "raycast"
+      "aerospace"
+      "tunnelblick"
+
+      # Gaming
       "steam"
       "whisky"
-      "raycast"
-      "alacritty"
-      "ghostty"
-      "wezterm"
-      "bruno"
+
+      # Browsers
+      "google-chrome"
+
+      # Messaging
+      "microsoft-teams"
       "whatsapp"
       "discord"
       "slack"
-      "microsoft-teams"
-      "visual-studio-code"
-      "google-chrome"
-      "zed"
-      "aerospace"
       "mattermost"
-      "tunnelblick"
+
+      # Development
+      # "docker"
+      "alacritty"
+      "ghostty"
+      "visual-studio-code"
+      "zed"
+      "bruno"
+
+      # Media
+      "sonos"
+      "calibre"
+      "kobo"
     ];
 
     masApps = {
       "Adblock for Safari" = 1402042596;
       "Vimari" = 1480933944;
       "1Password for Safari" = 1569813296;
+      "Xcode" = 497799835;
     };
   };
 }
