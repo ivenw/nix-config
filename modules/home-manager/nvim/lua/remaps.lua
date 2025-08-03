@@ -35,7 +35,7 @@ km.set("n", "<leader>R", function()
 		if input == nil then
 			return
 		end
-		vim.cmd("%s/" .. current_word .. "/" .. input .. "/g")
+		vim.cmd("%s/\\<" .. current_word .. "\\>/" .. input .. "/g")
 	end)
 end, { desc = "Find and replace symbol" })
 
