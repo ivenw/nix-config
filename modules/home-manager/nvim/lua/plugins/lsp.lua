@@ -14,8 +14,11 @@ return {
 				lsp_zero.default_keymaps({ buffer = bufnr })
 			end)
 			lsp_zero.extend_cmp()
-			require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
-			require("lspconfig").rust_analyzer.setup({
+
+			local lspconfig = require("lspconfig")
+			lspconfig.biome.setup({})
+			lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+			lspconfig.rust_analyzer.setup({
 				settings = {
 					["rust-analyzer"] = {
 						files = {
@@ -45,16 +48,23 @@ return {
 				},
 			})
 
+			lspconfig.ts_ls.setup({
+				settings = {
+					implicitProjectConfiguration = {
+						checkJs = true,
+					},
+				},
+			})
+
 			lsp_zero.setup_servers({
 				"nil_ls",
-				-- "ruff",
-				"ruff_lsp",
+				"ruff",
 				"pyright",
 				"efm",
 				"zls",
 				"gopls",
-				"terraformls",
-				"tflint",
+				-- "terraformls",
+				-- "tflint",
 				"tailwindcss",
 			})
 		end,
@@ -77,6 +87,7 @@ return {
 		config = function()
 			local shellcheck = require("efmls-configs.linters.shellcheck")
 			local shfmt = require("efmls-configs.formatters.shfmt")
+			local eslint = require("efmls-configs.linters.eslint")
 			local prettier = require("efmls-configs.formatters.prettier")
 			local stylua = require("efmls-configs.formatters.stylua")
 			local alejandra = require("efmls-configs.formatters.alejandra")
@@ -101,7 +112,7 @@ return {
 				html = { prettier },
 				htmldjango = { prettier },
 				terraform = { terraformfmt },
-				javascript = { prettier },
+				javascript = { eslint, prettier },
 				sql = { sql_formatter },
 				-- hcl = { terramatefmt },
 			}
