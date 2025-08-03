@@ -36,7 +36,7 @@
     graphviz
     pkgs-unstable.jq
     imagemagick
-    pkgs-unstable.postgresql
+    postgresql
     pkgs-unstable.helix
 
     ###########################
