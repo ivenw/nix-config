@@ -47,6 +47,9 @@
       # Web
       nodePackages.prettier
       tailwindcss-language-server
+      typescript
+      typescript-language-server
+      biome
 
       # YAML
       yamllint
