@@ -56,6 +56,7 @@
     # Python
     python3
     pkgs-unstable.rye
+    pkgs-unstable.uv
     pkgs-unstable.ruff
 
     # Rust
