@@ -11,7 +11,7 @@
     extraPackages = with pkgs-unstable; [
       # treesitter
       gcc
-      nodejs_18
+      nodejs_24
       tree-sitter
 
       # Linting & formatting lsp
@@ -37,7 +37,6 @@
 
       # Python
       pyright
-      ruff-lsp
       ruff
 
       # Lua
