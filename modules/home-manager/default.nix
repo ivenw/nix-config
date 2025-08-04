@@ -48,6 +48,7 @@
     taplo
 
     # Web
+    pkgs-unstable.bun
     pkgs-unstable.nodejs
     pkgs-unstable.tailwindcss
     pkgs-unstable.nodePackages.browser-sync
