@@ -3,7 +3,8 @@
   pkgs,
   pkgs-unstable,
   ...
-}: {
+}:
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -59,8 +60,6 @@
   };
 
   xdg.configFile."nvim" = {
-    source =
-      config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-config/modules/home-manager/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/nvim";
   };
 }

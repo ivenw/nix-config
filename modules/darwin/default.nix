@@ -56,7 +56,10 @@
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.trusted-users = [username];
 
   nixpkgs.config.allowUnfree = true;
