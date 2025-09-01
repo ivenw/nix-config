@@ -15,18 +15,15 @@
     brews = [
       "glab"
       "gh"
-      "ollama"
     ];
 
     casks = [
       # System
-      "raycast"
       "aerospace"
       "tunnelblick"
 
       # Gaming
       "steam"
-      "whisky"
 
       # Browsers
       "google-chrome"
@@ -35,12 +32,10 @@
       "microsoft-teams"
       "whatsapp"
       "discord"
-      "slack"
       "mattermost"
 
       # Development
       # "docker"
-      "alacritty"
       "ghostty"
       "visual-studio-code"
       "zed"

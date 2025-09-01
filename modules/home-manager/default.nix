@@ -1,8 +1,4 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./git
     ./lazygit
@@ -12,9 +8,7 @@
     ./zsh.nix
     ./starship.nix
     ./tmux
-    ./alacritty
     ./ghostty
-    ./wezterm
     ./aerospace
     ./nix-direnv.nix
   ];
@@ -22,43 +16,25 @@
   home.packages = with pkgs; [
     # General cli and tui apps
     azure-cli
-    pipx
     fd
     fzf
     delta
     tokei
-    pkgs-unstable.ripgrep
+    ripgrep
     tree
     zoxide
     mdbook
     unzip
-    pkgs-unstable.yazi
+    yazi
     graphviz
-    pkgs-unstable.jq
+    jq
     imagemagick
-    postgresql
-    pkgs-unstable.helix
-
-    ###########################
-    # Language specific tools #
-    ###########################
-
-    # Config files and co
-    yamllint
-    taplo
 
     # Web
-    pkgs-unstable.bun
-    pkgs-unstable.nodejs
-    pkgs-unstable.tailwindcss
-    pkgs-unstable.nodePackages.browser-sync
-    pkgs-unstable.nodePackages.prettier
+    bun
 
     # Python
-    python3
-    pkgs-unstable.rye
-    pkgs-unstable.uv
-    pkgs-unstable.ruff
+    uv
 
     # Rust
     rustup
@@ -70,8 +46,7 @@
     zig
 
     # Terraform
-    terraform
-    opentofu
+    tenv
   ];
 
   # Enable home-manager

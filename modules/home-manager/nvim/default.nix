@@ -1,18 +1,16 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   ...
-}:
-{
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
-    extraPackages = with pkgs-unstable; [
+    extraPackages = with pkgs; [
       # treesitter
       gcc
-      nodejs_24
+      nodejs
       tree-sitter
 
       # Linting & formatting lsp
@@ -49,7 +47,7 @@
       tailwindcss-language-server
       typescript
       typescript-language-server
-      biome
+      eslint
 
       # YAML
       yamllint

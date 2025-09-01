@@ -1,7 +1,7 @@
 {config, ...}: {
-  # programs.alacritty = {
-  #   enable = true;
-  # };
+  programs.alacritty = {
+    enable = true;
+  };
 
   xdg.configFile."alacritty/themes/catppuccin" = {
     source = fetchGit {
@@ -11,8 +11,6 @@
   };
 
   xdg.configFile."alacritty/alacritty.toml" = {
-    source =
-      config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-config/modules/home-manager/alacritty/alacritty.toml";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/alacritty/alacritty.toml";
   };
 }
