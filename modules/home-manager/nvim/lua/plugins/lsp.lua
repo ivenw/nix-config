@@ -16,6 +16,10 @@ return {
 			lsp_zero.extend_cmp()
 
 			local lspconfig = require("lspconfig")
+			lspconfig.sourcekit.setup({
+				cmd = { "sourcekit-lsp" },
+				root_dir = require("lspconfig.util").root_pattern("Package.swift", "*.xcodeproj", "*.xcworkspace"),
+			})
 			lspconfig.biome.setup({})
 			lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
 			lspconfig.rust_analyzer.setup({
