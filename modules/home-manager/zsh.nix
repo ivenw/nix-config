@@ -11,15 +11,11 @@
       # switch-to-configuration = "sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch";
       # cleanup = "nix-env --delete-generations +1 && switch-to-configuration && sudo nix-collect-garbage -d";
 
-      darwin-apply = "darwin-rebuild switch --flake ~/nix-config";
-
-      pvim = "poetry run nvim";
-      ptest = "poetry run pytest";
+      darwin-apply = "sudo darwin-rebuild switch --flake ~/nix-config";
 
       lg = "lazygit";
       ya = "yazi";
       nv = "nvim";
-      tf = "terraform";
 
       # dev shells
       # dev-rust = "nix develop ~/nixos-config#rust -c $SHELL";
@@ -34,11 +30,10 @@
       enable = true;
     };
 
-    initExtraFirst = ''
-      source $HOME/.rye/env
-      export PATH=$HOME/.cargo/bin:$PATH
-      export PATH=$HOME/.deno/bin:$PATH
-      export PATH=$HOME/.bun/bin:$PATH
-    '';
+    # initContent = lib.mkBefore ''
+    #   export PATH=$HOME/.local/bin:$PATH
+    #   export PATH=$HOME/.cargo/bin:$PATH
+    #   export PATH=$HOME/.bun/bin:$PATH
+    # '';
   };
 }
