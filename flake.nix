@@ -40,17 +40,22 @@
         # CLI and TUI
         neovim
         helix
+        fzf
+        delta
+        tokei
         ripgrep
         yazi
+        lazygit
         jq
         # Languages
-        bun
-        nodejs
-        tailwindcss
-        rye
         uv
         ruff
-        nodejs_24
+        bun
+        rustup
+        go
+        zig
+        tenv
+        tailwindcss
         tree-sitter
         efm-langserver
         shellcheck
@@ -67,7 +72,6 @@
         tailwindcss-language-server
         typescript
         typescript-language-server
-        biome
         yamllint
         ;
 
@@ -93,7 +97,7 @@
         ./modules/darwin
         home-manager.darwinModules.home-manager
         {
-          # nixpkgs.overlays = [unstableOverlay];
+          nixpkgs.overlays = [unstableOverlay];
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
