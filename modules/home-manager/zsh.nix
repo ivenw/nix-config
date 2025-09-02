@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -12,6 +12,7 @@
       # cleanup = "nix-env --delete-generations +1 && switch-to-configuration && sudo nix-collect-garbage -d";
 
       darwin-apply = "sudo darwin-rebuild switch --flake ~/nix-config";
+      claude = "~/.local/bin/claude";
 
       lg = "lazygit";
       ya = "yazi";
@@ -30,10 +31,9 @@
       enable = true;
     };
 
-    # initContent = lib.mkBefore ''
-    #   export PATH=$HOME/.local/bin:$PATH
-    #   export PATH=$HOME/.cargo/bin:$PATH
-    #   export PATH=$HOME/.bun/bin:$PATH
-    # '';
+    initContent = lib.mkBefore ''
+      export PATH=$HOME/.cargo/bin:$PATH
+      export PATH=$HOME/.bun/bin:$PATH
+    '';
   };
 }
