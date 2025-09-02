@@ -46,12 +46,5 @@
       "calibre"
       "kobo"
     ];
-
-    masApps = {
-      "Adblock for Safari" = 1402042596;
-      "Vimari" = 1480933944;
-      "1Password for Safari" = 1569813296;
-      "Xcode" = 497799835;
-    };
   };
 }
