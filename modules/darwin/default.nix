@@ -9,12 +9,12 @@
   ];
 
   nix.enable = false;
-  nix.package = pkgs.nix;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.trusted-users = [username];
+  # nix.package = pkgs.nix;
+  # nix.settings.experimental-features = [
+  #   "nix-command"
+  #   "flakes"
+  # ];
+  # nix.settings.trusted-users = [username];
   # do garbage collection to keep disk usage low
   # requires nix.enable
   # nix.gc = {
@@ -71,5 +71,4 @@
   users.users.${username} = {
     home = "/Users/${username}";
   };
-
 }
