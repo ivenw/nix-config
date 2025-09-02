@@ -5,7 +5,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -86,15 +86,21 @@
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
       inherit system;
+      specialArgs = {
+        inherit username hostname;
+      };
       modules = [
         ./modules/darwin
         home-manager.darwinModules.home-manager
         {
-          nixpkgs.overlays = [unstableOverlay];
+          # nixpkgs.overlays = [unstableOverlay];
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${username}.imports = [./modules/home-manager];
+            extraSpecialArgs = {
+              inherit username hostname;
+            };
           };
         }
       ];
