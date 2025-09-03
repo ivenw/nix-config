@@ -31,6 +31,7 @@ return {
 			km.set("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", { desc = "Grep search" })
 			km.set("n", "<leader>td", "<cmd>Telescope lsp_definitions<cr>", { desc = "Show definitions" })
 			km.set("n", "<leader>tr", "<cmd>Telescope lsp_references<cr>", { desc = "Show references" })
+			km.set("n", "<leader>ts", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Show symbols" })
 			km.set("n", "<leader>tw", builtin.diagnostics, { desc = "Show diagnostics" })
 		end,
 	},
