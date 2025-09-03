@@ -1,86 +1,78 @@
 return {
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-		},
-		init = function()
-			local lsp_zero = require("lsp-zero").preset({})
-			lsp_zero.extend_lspconfig()
-			lsp_zero.on_attach(function(_, bufnr)
-				-- see :help lsp-zero-keybindings
-				-- to learn the available actions
-				lsp_zero.default_keymaps({ buffer = bufnr })
-			end)
-			lsp_zero.extend_cmp()
-
-			local lspconfig = require("lspconfig")
-			lspconfig.sourcekit.setup({
-				cmd = { "sourcekit-lsp" },
-				root_dir = require("lspconfig.util").root_pattern("Package.swift", "*.xcodeproj", "*.xcworkspace"),
-			})
-			lspconfig.biome.setup({})
-			lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
-			lspconfig.rust_analyzer.setup({
-				settings = {
-					["rust-analyzer"] = {
-						files = {
-							excludeDirs = {
-								"target",
-								"node_modules",
-								".git",
-								".cargo",
-								".direnv",
-							},
-							watcherExlude = {
-								"target",
-								"node_modules",
-								".git",
-								".cargo",
-								".direnv",
-							},
-						},
-						checkOnSave = {
-							command = "clippy",
-						},
-						diagnostics = {
-							enable = true,
-							experimental = { enable = true },
-						},
+		"neovim/nvim-lspconfig",
+		config = function()
+			vim.lsp.config("pyright", { disableOrganizeImports = true })
+			vim.lsp.config("ruff", {
+				init_options = {
+					settings = {
+						organizeImports = true,
+						fixAll = true,
 					},
+					format = {
+						enable = true,
+					},
+					lint = {
+						enable = true,
+					}
 				},
 			})
-
-			lspconfig.ts_ls.setup({
-				settings = {
-					implicitProjectConfiguration = {
-						checkJs = true,
-					},
-				},
-			})
-
-			lsp_zero.setup_servers({
+			vim.lsp.enable({
+				"lua_ls",
+				"sourcekit",
+				"rust_analyzer",
+				"ts_ls",
 				"nil_ls",
 				"ruff",
 				"pyright",
-				"efm",
 				"zls",
 				"gopls",
-				-- "terraformls",
-				-- "tflint",
 				"tailwindcss",
+				-- "efm",
+			})
+
+			---------------------
+			-- Format on write --
+			---------------------
+			-- Create an augroup that is used for managing our formatting autocmds.
+			--  We need one augroup per client to make sure that multiple clients
+			--  can attach to the same buffer without interfering with each other.
+			local _augroups = {}
+			local get_augroup = function(client)
+				if not _augroups[client.id] then
+					local group_name = "lsp-attach-format-on-write-" .. client.name
+					local id = vim.api.nvim_create_augroup(group_name, { clear = true })
+					_augroups[client.id] = id
+				end
+
+				return _augroups[client.id]
+			end
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("lsp-attach-format-on-write", { clear = true }),
+				callback = function(args)
+					local client_id = args.data.client_id
+					local client = vim.lsp.get_client_by_id(client_id)
+					local bufnr = args.buf
+
+					if not client.server_capabilities.documentFormattingProvider then
+						return
+					end
+
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = get_augroup(client),
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({
+								async = false,
+								filter = function(c)
+									return c.id == client.id
+								end,
+							})
+						end,
+					})
+				end,
 			})
 		end,
-	},
-
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"L3MON4D3/LuaSnip",
-		},
 	},
 
 	-- Formatting
@@ -131,7 +123,7 @@ return {
 					documentRangeFormatting = true,
 				},
 			}
-			require("lspconfig").efm.setup(vim.tbl_extend("force", config, {}))
+			require("lspconfig").efm.setup(vim.tbl_extend("force", config, { offset_encoding = "utf-16" }))
 		end,
 	},
 }
