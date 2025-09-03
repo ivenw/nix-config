@@ -97,7 +97,8 @@
         ./modules/darwin
         home-manager.darwinModules.home-manager
         {
-          nixpkgs.overlays = [unstableOverlay];
+          # TODO: The overlay is currently causing issues
+          # nixpkgs.overlays = [unstableOverlay];
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
