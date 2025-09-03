@@ -28,7 +28,7 @@ return {
 				"zls",
 				"gopls",
 				"tailwindcss",
-				-- "efm",
+				"efm",
 			})
 
 			---------------------
