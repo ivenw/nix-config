@@ -3,12 +3,23 @@ return {
 		"nvim-mini/mini.nvim",
 		version = false,
 		config = function()
+			require("mini.basics").setup({})
 			require("mini.comment").setup({})
 			require("mini.surround").setup({})
 			require("mini.icons").setup({})
 			require("mini.snippets").setup({})
 			require("mini.completion").setup({})
-			-- require("mini.pairs").setup({})
+			require("mini.notify").setup({})
+			require("mini.extra").setup({})
+			require("mini.trailspace").setup({})
+			require("mini.pairs").setup({})
+			-- TODO: Use mini.diff once there is git blame support in mini
+			-- require("mini.diff").setup({})
+
+			local miniindentscope = require("mini.indentscope")
+			miniindentscope.setup({
+				draw = { delay = 0, animation = miniindentscope.gen_animation.none() },
+			})
 
 			local minifiles = require("mini.files")
 			minifiles.setup({})
