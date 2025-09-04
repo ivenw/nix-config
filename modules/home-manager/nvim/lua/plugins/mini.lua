@@ -1,79 +1,108 @@
 return {
-	{
-		"nvim-mini/mini.nvim",
-		version = false,
-		config = function()
-			require("mini.basics").setup({})
-			require("mini.comment").setup({})
-			require("mini.surround").setup({})
-			require("mini.icons").setup({})
-			require("mini.snippets").setup({})
-			require("mini.completion").setup({})
-			require("mini.notify").setup({})
-			require("mini.extra").setup({})
-			require("mini.trailspace").setup({})
-			require("mini.pairs").setup({})
-			-- TODO: Use mini.diff once there is git blame support in mini
-			-- require("mini.diff").setup({})
+    {
+        "nvim-mini/mini.nvim",
+        config = function()
+            require("mini.basics").setup({})
+            require("mini.extra").setup({})
+            require("mini.comment").setup({})
+            require("mini.surround").setup({})
+            require("mini.icons").setup({})
+            require("mini.snippets").setup({})
+            require("mini.trailspace").setup({})
+            require("mini.statusline").setup({})
 
-			local miniindentscope = require("mini.indentscope")
-			miniindentscope.setup({
-				draw = { delay = 0, animation = miniindentscope.gen_animation.none() },
-			})
+            require("mini.completion").setup({})
+            -- Disable mini.completion inside the picker input
+            local f = function(args)
+                vim.b[args.buf].minicompletion_disable = true
+            end
+            vim.api.nvim_create_autocmd("FileType", { pattern = "snacks_picker_input", callback = f })
 
-			local minifiles = require("mini.files")
-			minifiles.setup({})
-			vim.keymap.set("n", "<leader>tf", minifiles.open, { desc = "File browser" })
+            local hipatterns = require("mini.hipatterns")
+            hipatterns.setup({
+                highlighters = {
+                    hex_colors = hipatterns.gen_highlighter.hex_color(),
+                },
+            })
 
-			local miniclue = require("mini.clue")
-			miniclue.setup({
-				triggers = {
-					-- Leader triggers
-					{ mode = "n", keys = "<Leader>" },
-					{ mode = "x", keys = "<Leader>" },
+            require("mini.diff").setup({
+                view = {
+                    style = "sign",
+                    signs = { add = "│", delete = "│", change = "│" },
+                    -- signs = { add = "+", delete = "-", change = "~" },
+                },
+            })
 
-					-- Built-in completion
-					{ mode = "i", keys = "<C-x>" },
+            require("mini.git").setup()
+            vim.keymap.set("n", "<leader>cb", function()
+                MiniGit.show_at_cursor()
+            end, { desc = "Show blame" })
 
-					-- `g` key
-					{ mode = "n", keys = "g" },
-					{ mode = "x", keys = "g" },
+            -- local indentscope = require("mini.indentscope")
+            -- indentscope.setup({
+            --     draw = { delay = 0, animation = indentscope.gen_animation.none() },
+            -- })
 
-					-- 's' key
-					{ mode = "n", keys = "s" },
-					{ mode = "x", keys = "s" },
+            require("mini.files").setup({})
+            vim.keymap.set("n", "<leader>tf", function()
+                MiniFiles.open()
+            end, { desc = "File browser" })
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "MiniFilesActionRename",
+                callback = function(event)
+                    Snacks.rename.on_rename_file(event.data.from, event.data.to)
+                end,
+            })
 
-					-- Marks
-					{ mode = "n", keys = "'" },
-					{ mode = "n", keys = "`" },
-					{ mode = "x", keys = "'" },
-					{ mode = "x", keys = "`" },
+            local clue = require("mini.clue")
+            clue.setup({
+                triggers = {
+                    -- Leader triggers
+                    { mode = "n", keys = "<Leader>" },
+                    { mode = "x", keys = "<Leader>" },
 
-					-- Registers
-					{ mode = "n", keys = '"' },
-					{ mode = "x", keys = '"' },
-					{ mode = "i", keys = "<C-r>" },
-					{ mode = "c", keys = "<C-r>" },
+                    -- Built-in completion
+                    { mode = "i", keys = "<C-x>" },
 
-					-- Window commands
-					{ mode = "n", keys = "<C-w>" },
+                    -- `g` key
+                    { mode = "n", keys = "g" },
+                    { mode = "x", keys = "g" },
 
-					-- `z` key
-					{ mode = "n", keys = "z" },
-					{ mode = "x", keys = "z" },
-				},
+                    -- 's' key
+                    { mode = "n", keys = "s" },
+                    { mode = "x", keys = "s" },
 
-				clues = {
-					-- Enhance this by adding descriptions for <Leader> mapping groups
-					miniclue.gen_clues.builtin_completion(),
-					miniclue.gen_clues.g(),
-					miniclue.gen_clues.marks(),
-					miniclue.gen_clues.registers(),
-					miniclue.gen_clues.windows(),
-					miniclue.gen_clues.z(),
-				},
-				window = { delay = 0, config = { width = "auto" } },
-			})
-		end,
-	},
+                    -- Marks
+                    { mode = "n", keys = "'" },
+                    { mode = "n", keys = "`" },
+                    { mode = "x", keys = "'" },
+                    { mode = "x", keys = "`" },
+
+                    -- Registers
+                    { mode = "n", keys = '"' },
+                    { mode = "x", keys = '"' },
+                    { mode = "i", keys = "<C-r>" },
+                    { mode = "c", keys = "<C-r>" },
+
+                    -- Window commands
+                    { mode = "n", keys = "<C-w>" },
+
+                    -- `z` key
+                    { mode = "n", keys = "z" },
+                    { mode = "x", keys = "z" },
+                },
+
+                clues = {
+                    -- Enhance this by adding descriptions for <Leader> mapping groups
+                    clue.gen_clues.builtin_completion(),
+                    clue.gen_clues.g(),
+                    clue.gen_clues.marks(),
+                    clue.gen_clues.registers(),
+                    clue.gen_clues.windows(),
+                    clue.gen_clues.z(),
+                },
+                window = { delay = 0, config = { width = "auto" } },
+            })
+        end,
+    },
 }
