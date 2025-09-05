@@ -90,9 +90,9 @@ return {
             local rustfmt = require("efmls-configs.formatters.rustfmt")
             local gofmt = require("efmls-configs.formatters.gofmt")
             local terraformfmt = require("efmls-configs.formatters.terraform_fmt")
-            -- local terramatefmt = require("efmls-configs.formatters.terramate_fmt")
             local sql_formatter = require("efmls-configs.formatters.sql-formatter")
             local yamllint = require("efmls-configs.linters.yamllint")
+            local markdown = require("efmls-configs.linters.vale")
 
             local languages = {
                 sh = { shellcheck, shfmt },
@@ -102,13 +102,14 @@ return {
                 go = { gofmt },
                 css = { prettier },
                 json = { prettier },
-                yaml = { prettier },
+                yaml = { prettier, yamllint },
                 html = { prettier },
                 htmldjango = { prettier },
                 terraform = { terraformfmt },
                 javascript = { eslint, prettier },
                 sql = { sql_formatter },
                 -- hcl = { terramatefmt },
+                markdown = { markdown },
             }
             local config = {
                 filetypes = vim.tbl_keys(languages),
