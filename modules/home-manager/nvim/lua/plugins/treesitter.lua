@@ -1,14 +1,14 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
 		-- rebuild parsers when updating nvim-treesitter
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("nvim-treesitter.configs").setup({
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		---@type TSConfig
+		opts = {
 				ensure_installed = {},
 				auto_install = true,
 				highlight = { enable = true },
@@ -53,15 +53,19 @@ return {
 					},
 					swap = {
 						enable = true,
-						swap_next = {
-							["<leader>sn"] = "@parameter.inner",
-						},
-						swap_previous = {
-							["<leader>sp"] = "@parameter.inner",
-						},
+						swap_next = { ["<leader>sn"] = "@parameter.inner" },
+						swap_previous = {["<leader>sp"] = "@parameter.inner" },
 					},
 				},
-			})
-		end,
+		}
+
+	},
+	{	"nvim-treesitter/nvim-treesitter-context" },
+	{ "windwp/nvim-ts-autotag" },
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		opts = {
+			enable_autocmd = false,
+		},
 	},
 }

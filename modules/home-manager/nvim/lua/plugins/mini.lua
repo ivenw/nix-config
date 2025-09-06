@@ -4,7 +4,13 @@ return {
         config = function()
             require("mini.basics").setup({})
             require("mini.extra").setup({})
-            require("mini.comment").setup({})
+            require("mini.comment").setup({
+                options = {
+                    custom_commentstring = function()
+                        return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+                    end,
+  },
+            })
             require("mini.surround").setup({})
             require("mini.icons").setup({})
             require("mini.snippets").setup({})
