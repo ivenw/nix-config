@@ -16,13 +16,7 @@ return {
             require("mini.snippets").setup({})
             require("mini.trailspace").setup({})
             require("mini.statusline").setup({})
-
             require("mini.completion").setup({})
-            -- Disable mini.completion inside the picker input
-            local f = function(args)
-                vim.b[args.buf].minicompletion_disable = true
-            end
-            vim.api.nvim_create_autocmd("FileType", { pattern = "snacks_picker_input", callback = f })
 
             local hipatterns = require("mini.hipatterns")
             hipatterns.setup({

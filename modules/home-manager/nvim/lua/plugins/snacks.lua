@@ -20,18 +20,18 @@ return {
                 },
             },
             picker = {
-                layout = { layout = { backdrop = 70 } },
+                layout = { layout = { backdrop = false } },
                 win = {
                     input = {
                         keys = {
-                            ["<Esc>"] = { "close", mode = { "n", "i" },
-                            },
+                            ["<Esc>"] = { "close", mode = { "n", "i" } },
                         },
+                        b = { minicompletion_disable = true },
                     },
                 },
             },
             -- git = {},
-            lazygit = { win = { style = { backdrop = 70 } } },
+            lazygit = { win = { style = { backdrop = false } } },
             statuscolumn = {},
             terminal = {},
             indent = {
