@@ -54,6 +54,9 @@
 
       # SQL
       nodePackages.sql-formatter
+
+      # Markdown
+      vale
     ];
   };
 
