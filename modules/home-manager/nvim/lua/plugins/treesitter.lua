@@ -60,9 +60,12 @@ return {
 			},
 		},
 	},
-}, { "nvim-treesitter/nvim-treesitter-context" }, { "windwp/nvim-ts-autotag" }, {
-	"JoosepAlviste/nvim-ts-context-commentstring",
-	opts = {
-		enable_autocmd = false,
+	{ "nvim-treesitter/nvim-treesitter-context" },
+	{ "windwp/nvim-ts-autotag" },
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		opts = {
+			enable_autocmd = false,
+		},
 	},
 }
