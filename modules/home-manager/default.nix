@@ -32,6 +32,7 @@
 
     # Web
     bun
+    nodejs
 
     # Python
     uv
