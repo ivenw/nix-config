@@ -57,6 +57,8 @@
 
       # Markdown
       vale
+      markdownlint-cli
+      markdownlint-cli2
     ];
   };
 

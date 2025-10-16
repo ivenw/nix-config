@@ -16,6 +16,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("modules.tmux_navigator")
+
 require("options")
 require("keymaps")
 

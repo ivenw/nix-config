@@ -33,9 +33,11 @@
     # Web
     bun
     nodejs
+    nodePackages.prettier
 
     # Python
     uv
+    ruff
 
     # Rust
     rustup
@@ -48,6 +50,11 @@
 
     # Terraform
     tenv
+
+    # Writing
+    markdownlint-cli2
+    vale
+    typos
   ];
 
   # Enable home-manager

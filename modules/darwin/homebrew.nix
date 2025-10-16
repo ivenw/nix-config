@@ -29,6 +29,7 @@
       "google-chrome"
 
       # Messaging
+      "slack"
       "microsoft-teams"
       "whatsapp"
       "discord"

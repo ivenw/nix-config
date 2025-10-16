@@ -2,21 +2,28 @@ return {
     {
         "nvim-mini/mini.nvim",
         config = function()
-            require("mini.basics").setup({})
-            require("mini.extra").setup({})
+            require("mini.basics").setup()
+            require("mini.extra").setup()
+            require("mini.icons").setup()
             require("mini.comment").setup({
                 options = {
                     custom_commentstring = function()
-                        return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+                        return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
                     end,
-  },
+                },
             })
-            require("mini.surround").setup({})
-            require("mini.icons").setup({})
-            require("mini.snippets").setup({})
-            require("mini.trailspace").setup({})
-            require("mini.statusline").setup({})
-            require("mini.completion").setup({})
+
+            require("mini.ai").setup()
+            require("mini.surround").setup()
+            require("mini.statusline").setup()
+            require("mini.completion").setup()
+
+            require("mini.trailspace").setup()
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                callback = function()
+                    MiniTrailspace.trim()
+                end,
+            })
 
             local hipatterns = require("mini.hipatterns")
             hipatterns.setup({
@@ -34,25 +41,42 @@ return {
             })
 
             require("mini.git").setup()
-            vim.keymap.set("n", "<leader>cb", function()
-                MiniGit.show_at_cursor()
-            end, { desc = "Show blame" })
+            vim.keymap.set("n", "<leader>cb", MiniGit.show_at_cursor, { desc = "Show blame" })
 
             -- local indentscope = require("mini.indentscope")
             -- indentscope.setup({
-            --     draw = { delay = 0, animation = indentscope.gen_animation.none() },
+            --     draw = {
+            --         delay = 0,
+            --         animation = indentscope.gen_animation.none(),
+            --     },
+            --     symbol = "│",
+            --     options = { indent_at_cursor = false },
             -- })
+
+            require("mini.pick").setup({})
+            vim.keymap.set("n", "<leader>f", function()
+                MiniPick.builtin.files({ tools = git })
+            end, { desc = "Pick files" })
+            vim.keymap.set("n", "<leader>tg", function()
+                MiniPick.builtin.grep_live()
+            end, { desc = "Live grep" })
+            vim.keymap.set("n", "<leader>td", function()
+                MiniExtra.pickers.lsp({ scope = "definition" })
+            end, { desc = "Show definitions" })
+            vim.keymap.set("n", "<leader>tr", function()
+                MiniExtra.pickers.lsp({ scope = "references" })
+            end, { desc = "Show references" })
+            vim.keymap.set("n", "<leader>tb", function()
+                MiniExtra.pickers.buf_lines({ scope = "current", preserve_order = true })
+            end, { desc = "Search buffer" })
+            vim.keymap.set("n", "<leader>ts", function()
+                MiniExtra.pickers.lsp({ scope = "document_symbol" })
+            end, { desc = "Search doument symbols" })
 
             require("mini.files").setup({})
             vim.keymap.set("n", "<leader>tf", function()
                 MiniFiles.open()
             end, { desc = "File browser" })
-            vim.api.nvim_create_autocmd("User", {
-                pattern = "MiniFilesActionRename",
-                callback = function(event)
-                    Snacks.rename.on_rename_file(event.data.from, event.data.to)
-                end,
-            })
 
             local clue = require("mini.clue")
             clue.setup({
@@ -93,7 +117,6 @@ return {
                 },
 
                 clues = {
-                    -- Enhance this by adding descriptions for <Leader> mapping groups
                     clue.gen_clues.builtin_completion(),
                     clue.gen_clues.g(),
                     clue.gen_clues.marks(),
