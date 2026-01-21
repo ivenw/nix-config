@@ -21,6 +21,7 @@
       # System
       "aerospace"
       "tunnelblick"
+      "kopiaui"
 
       # Gaming
       "steam"

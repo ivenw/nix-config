@@ -28,10 +28,10 @@
       terraform-ls
       tflint
 
-      # zig
+      # Zig
       zls
 
-      # go
+      # Go
       gopls
 
       # Python
@@ -51,6 +51,12 @@
 
       # YAML
       yamllint
+
+      # TOML
+      taplo
+
+      # Docker
+      hadolint
 
       # SQL
       nodePackages.sql-formatter

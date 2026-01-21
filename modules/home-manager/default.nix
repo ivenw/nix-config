@@ -35,6 +35,9 @@
     nodejs
     nodePackages.prettier
 
+    # C / C++
+    cmake
+
     # Python
     uv
     ruff

@@ -41,7 +41,7 @@ return {
             })
 
             require("mini.git").setup()
-            vim.keymap.set("n", "<leader>cb", MiniGit.show_at_cursor, { desc = "Show blame" })
+            -- vim.keymap.set("n", "<leader>cb", MiniGit.show_at_cursor, { desc = "Show blame" })
 
             -- local indentscope = require("mini.indentscope")
             -- indentscope.setup({

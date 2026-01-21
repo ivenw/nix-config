@@ -12,7 +12,8 @@ return {
             })
             vim.lsp.enable({
                 "lua_ls",
-                "sourcekit",
+                "clangd",
+                -- "sourcekit",
                 "rust_analyzer",
                 "ts_ls",
                 "nil_ls",
@@ -97,6 +98,8 @@ return {
             local terraformfmt = require("efmls-configs.formatters.terraform_fmt")
             local sql_formatter = require("efmls-configs.formatters.sql-formatter")
             local yamllint = require("efmls-configs.linters.yamllint")
+            local taplo = require("efmls-configs.formatters.taplo")
+            local hadolint = require("efmls-configs.linters.hadolint")
             local markdownlint = require("efmls-configs.linters.markdownlint")
 
             local languages = {
@@ -108,6 +111,8 @@ return {
                 css = { prettier },
                 json = { prettier },
                 yaml = { prettier, yamllint },
+                toml = { taplo },
+                dockerfile = { hadolint },
                 html = { prettier },
                 htmldjango = { prettier },
                 terraform = { terraformfmt },
