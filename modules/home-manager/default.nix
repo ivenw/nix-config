@@ -15,6 +15,7 @@
 
   home.packages = with pkgs; [
     # General cli and tui apps
+    nh
     azure-cli
     fd
     fzf
