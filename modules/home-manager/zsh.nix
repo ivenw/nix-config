@@ -12,7 +12,6 @@
       # cleanup = "nix-env --delete-generations +1 && switch-to-configuration && sudo nix-collect-garbage -d";
 
       darwin-apply = "sudo darwin-rebuild switch --flake ~/nix-config";
-      claude = "~/.local/bin/claude";
 
       lg = "lazygit";
       ya = "yazi";
@@ -35,6 +34,7 @@
       export PATH=$HOME/.cargo/bin:$PATH
       export PATH=$HOME/.local/bin:$PATH
       export PATH=$HOME/.bun/bin:$PATH
+      export PATH=$HOME/.opencode/bin:$PATH
     '';
   };
 }

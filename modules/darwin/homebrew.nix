@@ -23,11 +23,15 @@
       "tunnelblick"
       "kopiaui"
 
+      # AI
+      "claude"
+
       # Gaming
       "steam"
 
       # Browsers
       "google-chrome"
+      "microsoft-edge"
 
       # Messaging
       "slack"
