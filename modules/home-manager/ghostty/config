@@ -3,6 +3,7 @@ theme = Catppuccin Macchiato
 font-family = BlexMono Nerd Font Mono
 
 macos-titlebar-style = hidden
+macos-window-buttons = hidden
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
