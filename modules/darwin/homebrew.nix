@@ -10,11 +10,15 @@
 
     taps = [
       "nikitabobko/tap"
+      "microsoft/mssql-release"
     ];
 
     brews = [
       "glab"
       "gh"
+      "openssl@3"
+      "unixodbc"
+      "msodbcsql18"
     ];
 
     casks = [
@@ -22,9 +26,6 @@
       "aerospace"
       "tunnelblick"
       "kopiaui"
-
-      # AI
-      "claude"
 
       # Gaming
       "steam"

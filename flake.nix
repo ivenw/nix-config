@@ -47,11 +47,13 @@
         yazi
         lazygit
         jq
+        codex
         # Languages
         uv
         ruff
         bun
         rustup
+        cargo-binstall
         go
         zig
         tenv
@@ -73,6 +75,7 @@
         typescript
         typescript-language-server
         yamllint
+        slides
         ;
 
       # Handle nested packages like nodePackages

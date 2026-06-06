@@ -29,6 +29,7 @@ return {
             hipatterns.setup({
                 highlighters = {
                     hex_colors = hipatterns.gen_highlighter.hex_color(),
+                    todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
                 },
             })
 
@@ -72,6 +73,9 @@ return {
             vim.keymap.set("n", "<leader>ts", function()
                 MiniExtra.pickers.lsp({ scope = "document_symbol" })
             end, { desc = "Search doument symbols" })
+            vim.keymap.set("n", "<leader>tp", function()
+                MiniExtra.pickers.hipatterns({ scope = "all" })
+            end, { desc = "Search hipatterns" })
 
             require("mini.files").setup({})
             vim.keymap.set("n", "<leader>tf", function()

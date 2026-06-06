@@ -15,6 +15,8 @@
 
   home.packages = with pkgs; [
     # General cli and tui apps
+    git
+    slides
     nh
     azure-cli
     fd
@@ -30,6 +32,7 @@
     graphviz
     jq
     imagemagick
+    graph-easy
 
     # Web
     bun
@@ -45,6 +48,7 @@
 
     # Rust
     rustup
+    cargo-binstall
 
     # Go
     go

@@ -2,7 +2,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            vim.lsp.config("pyright", { disableOrganizeImports = true })
+            vim.lsp.config("ty", {})
             vim.lsp.config("ruff", {
                 init_options = {
                     settings = { organizeImports = true, fixAll = true },
@@ -18,7 +18,7 @@ return {
                 "ts_ls",
                 "nil_ls",
                 "ruff",
-                "pyright",
+                "ty",
                 "zls",
                 "gopls",
                 "tailwindcss",

@@ -35,8 +35,8 @@
       gopls
 
       # Python
-      pyright
       ruff
+      ty
 
       # Lua
       lua-language-server
