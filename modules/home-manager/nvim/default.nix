@@ -43,7 +43,7 @@
       stylua
 
       # Web
-      nodePackages.prettier
+      prettier
       tailwindcss-language-server
       typescript
       typescript-language-server
@@ -59,7 +59,7 @@
       hadolint
 
       # SQL
-      nodePackages.sql-formatter
+      sql-formatter
 
       # Markdown
       vale
@@ -68,7 +68,10 @@
     ];
   };
 
-  xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/nvim";
-  };
+  # home-manager 26.05 disallows symlinking a directory that contains files it
+  # considers outside $HOME (e.g. default.nix, lazy-lock.json co-located here).
+  # Symlink only the nvim config entries instead of the whole directory.
+  xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/nvim/init.lua";
+  xdg.configFile."nvim/lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/nvim/lua";
+  xdg.configFile."nvim/after".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/nvim/after";
 }

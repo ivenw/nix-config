@@ -37,7 +37,7 @@
     # Web
     bun
     nodejs
-    nodePackages.prettier
+    prettier
 
     # C / C++
     cmake

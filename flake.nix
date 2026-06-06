@@ -1,16 +1,16 @@
 {
   description = "My nix configuration";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -46,7 +46,7 @@
         ripgrep
         yazi
         lazygit
-        jq
+        # jq
         codex
         # Languages
         uv
@@ -79,16 +79,16 @@
         ;
 
       # Handle nested packages like nodePackages
-      nodePackages =
-        prev.nodePackages
-        // {
-          inherit
-            (unstable.nodePackages)
-            browser-sync
-            prettier
-            sql-formatter
-            ;
-        };
+      # nodePackages =
+      #   prev.nodePackages
+      #   // {
+      #     inherit
+      #       (unstable.nodePackages)
+      #       browser-sync
+      #       prettier
+      #       sql-formatter
+      #       ;
+      #   };
     };
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
