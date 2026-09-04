@@ -16,13 +16,18 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	end,
 })
 
+-- load plugins
 vim.pack.add({
-	gh("catppuccin/nvim"),
+	-- LSP
+	gh("neovim/nvim-lspconfig"),
+	gh("creativenull/efmls-configs-nvim"),
+
+	-- Treesitter
 	{ src = gh("nvim-treesitter/nvim-treesitter"),             version = "main" },
 	{ src = gh("nvim-treesitter/nvim-treesitter-textobjects"), version = "main" },
 
-	gh("neovim/nvim-lspconfig"),
-	gh("creativenull/efmls-configs-nvim"),
+	-- Theme
+	gh("catppuccin/nvim"),
 
 	gh("nvim-mini/mini.nvim"),
 	gh("folke/snacks.nvim"),
@@ -30,12 +35,14 @@ vim.pack.add({
 	gh("JoosepAlviste/nvim-ts-context-commentstring"),
 	-- Automatically close html tags
 	gh("windwp/nvim-ts-autotag"),
+	-- Automatically set buffer options based on file
 	gh("tpope/vim-sleuth"),
 	gh("FabijanZulj/blame.nvim"),
 
 	gh("folke/lazydev.nvim"),
 })
 
+-- Theme
 require("catppuccin").setup({
 	flavour = "macchiato",
 	styles = {
@@ -45,25 +52,13 @@ require("catppuccin").setup({
 })
 vim.cmd.colorscheme("catppuccin")
 
+-- LSP
 vim.lsp.config("ruff", {
 	init_options = {
 		settings = { organizeImports = true, fixAll = true },
 		format = { enable = true },
 		lint = { enable = true },
 	},
-})
-vim.lsp.enable({
-	"lua_ls",
-	"clangd",
-	"rust_analyzer",
-	"ts_ls",
-	"nil_ls",
-	"ruff",
-	"ty",
-	"zls",
-	"gopls",
-	"tailwindcss",
-	"efm",
 })
 
 local shellcheck = require("efmls-configs.linters.shellcheck")
@@ -79,7 +74,7 @@ local sql_formatter = require("efmls-configs.formatters.sql-formatter")
 local yamllint = require("efmls-configs.linters.yamllint")
 local taplo = require("efmls-configs.formatters.taplo")
 local hadolint = require("efmls-configs.linters.hadolint")
-local markdownlint = require("efmls-configs.linters.markdownlint")
+-- local markdownlint = require("efmls-configs.linters.markdownlint")
 
 local languages = {
 	sh = { shellcheck, shfmt },
@@ -109,6 +104,21 @@ vim.lsp.config("efm", {
 	},
 })
 
+vim.lsp.enable({
+	"lua_ls",
+	"clangd",
+	"rust_analyzer",
+	"ts_ls",
+	"nil_ls",
+	"ruff",
+	"ty",
+	"zls",
+	"gopls",
+	"tailwindcss",
+	"efm",
+})
+
+-- mini.nvim
 require("mini.basics").setup()
 require("mini.extra").setup()
 require("mini.icons").setup()
@@ -123,6 +133,7 @@ require("mini.comment").setup({
 require("mini.ai").setup()
 require("mini.surround").setup()
 require("mini.statusline").setup()
+require("mini.statuscolumn").setup()
 require("mini.completion").setup()
 
 require("mini.trailspace").setup()
