@@ -31,6 +31,8 @@ vim.pack.add({
 	-- Automatically close html tags
 	gh("windwp/nvim-ts-autotag"),
 	gh("tpope/vim-sleuth"),
+	gh("FabijanZulj/blame.nvim"),
+
 	gh("folke/lazydev.nvim"),
 })
 
@@ -277,6 +279,9 @@ require("nvim-treesitter-textobjects").setup({
 require("ts_context_commentstring").setup({
 	enable_autocmd = false,
 })
+
+require("blame").setup({})
+km("n", "<leader>cb", ":BlameToggle virtual<CR>")
 
 ---@diagnostic disable-next-line: missing-fields
 require("lazydev").setup({ integrations = { cmp = false } })

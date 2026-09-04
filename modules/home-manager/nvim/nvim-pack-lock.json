@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "blame.nvim": {
+      "rev": "179da7aaacce7c52874af636255ede72dd6fe796",
+      "src": "https://github.com/FabijanZulj/blame.nvim"
+    },
     "efmls-configs-nvim": {
       "rev": "f145a2e8212a195d44c1430e76cbc96efb0afb08",
       "src": "https://github.com/creativenull/efmls-configs-nvim"
