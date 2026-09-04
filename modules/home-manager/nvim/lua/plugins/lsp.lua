@@ -2,7 +2,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            vim.lsp.config("ty", {})
+            -- vim.lsp.config("ty", {})
             vim.lsp.config("ruff", {
                 init_options = {
                     settings = { organizeImports = true, fixAll = true },
