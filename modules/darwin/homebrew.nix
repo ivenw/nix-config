@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   homebrew = {
     enable = true;
 
@@ -19,6 +19,8 @@
       "openssl@3"
       "unixodbc"
       "msodbcsql18"
+      "hunk"
+      "azure-cli"
     ];
 
     casks = [

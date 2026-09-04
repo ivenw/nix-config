@@ -14,11 +14,14 @@
   ];
 
   home.packages = with pkgs; [
+    # Buid dependencies
+    netcdf
+    ninja
+
     # General cli and tui apps
     git
     slides
     nh
-    azure-cli
     fd
     fzf
     delta
@@ -41,6 +44,9 @@
 
     # C / C++
     cmake
+
+    # C#
+    dotnet-sdk_10
 
     # Python
     uv
